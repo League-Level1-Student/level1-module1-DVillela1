@@ -1,26 +1,37 @@
+import javax.swing.JOptionPane;
 
-class JamesBond {
+public class JamesBond {
 
-	static int code;
-	String name;
-	static int x = 0;
+	public static void main(String[] args) {
+		Vault vault = new Vault();
+		int y = findCode(vault);
+		if (y == -1) {
+			System.out.println("You couldn't crack the code!");
 
-	JamesBond(String name) {
-		this.name = name;
-		System.out.println("James Bond has appeared");
-	}
-
-	public void findCode(int code) {
-		for (int x = 0; x < 1000001; x++) {
-			tryCode();
+		}
+		else {
+			System.out.println("James Bond has cracked the code! Code: " + y);			
 		}
 	}
-
-	void tryCode() {
-		if (x == code) {
-			System.out.println("James Bond has cracked the code!");
-		} else {
-			System.out.println("James Bond couldn't find the code!");
+		
+	
+	static int findCode(Vault vault) {
+		String p = JOptionPane.showInputDialog("What is the minimum number you want to test with?");
+		String o = JOptionPane.showInputDialog("What is the maximum number you want to test with?");
+		int oy = Integer.parseInt(o);
+		int po = Integer.parseInt(p);
+		if (po > oy) {
+			JOptionPane.showMessageDialog(null, "ERROR");
 		}
+		for (int x = po; x < oy; x++) {
+			if (vault.tryCode(x)) {
+				System.out.println("James Bond has cracked the code!");
+				return x;
+			}
+		}
+		
+		return -1;
 	}
-}
+
+	}
+

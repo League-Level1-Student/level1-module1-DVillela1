@@ -1,9 +1,14 @@
 
 public class Vault {
-	public static void main(String[] args) {
 
-		JamesBond jb = new JamesBond("JamesBond");
-		jb.findCode(92833);
-
+	private int secretCode = 30413;
+	
+	boolean tryCode(int secretCode) {
+		if (secretCode == this.secretCode) {
+			return true;
+		}
+		return false;
 	}
+	
+	
 }
