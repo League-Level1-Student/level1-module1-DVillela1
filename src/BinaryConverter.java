@@ -4,7 +4,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class binaryconverter {
+public class BinaryConverter {
 
 	public static void main(String[] args) {
 		JFrame frame = new JFrame();
@@ -17,6 +17,7 @@ public class binaryconverter {
 		JTextField text = new JTextField(30);
 		text.addInputMethodListener(null);
 		text.setSize(1000, 20);
+		String x = text.getText();
 		text.setVisible(true);
 		frame.add(text);
 		JButton button = new JButton();
@@ -26,10 +27,10 @@ public class binaryconverter {
 		button.setVisible(true);
 		frame.add(button);
 		frame.pack();
-		convert(text);
+		convert(x);
 	}
 
-	String convert(String input) {
+	static String convert(String input) {
 		if (input.length() != 8) {
 			JOptionPane.showMessageDialog(null, "Enter 8 bits, silly!!!");
 			return "-";
