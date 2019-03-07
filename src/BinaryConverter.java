@@ -27,6 +27,16 @@ public class BinaryConverter {
 		button.setVisible(true);
 		frame.add(button);
 		frame.pack();
+		int xi = Integer.parseInt(x);
+		if (xi < 0) {
+			JOptionPane.showMessageDialog(null, "Too many numbers");
+		}
+		if (xi > 99999999) {
+			JOptionPane.showMessageDialog(null, "Too little numbers");
+		}
+		if (xi > 0 && xi < 99999999) {
+			convert(x);
+		}
 		convert(x);
 	}
 
